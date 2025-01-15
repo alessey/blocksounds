@@ -55,7 +55,7 @@ const Blocksound = () => {
 
   const initializeAudio = () => {
     if (!audioContextRef.current) {
-      audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
+      audioContextRef.current = new window.AudioContext();
       analyserRef.current = audioContextRef.current.createAnalyser();
       analyserRef.current.connect(audioContextRef.current.destination);
       analyserRef.current.fftSize = 2048;
